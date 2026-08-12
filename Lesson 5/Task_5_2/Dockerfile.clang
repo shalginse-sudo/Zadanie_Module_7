@@ -1,0 +1,11 @@
+FROM ubuntu:latest
+
+RUN apt-get update && apt-get install -y clang nano
+
+WORKDIR /app
+
+COPY task1/task1/main.cpp task1/task1/task_1_1.cpp task1/task1/task_1_2.cpp .
+
+RUN clang++ main.cpp task_1_1.cpp task_1_2.cpp -o task
+
+CMD ["./task"]
